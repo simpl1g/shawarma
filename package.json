@@ -1,5 +1,13 @@
 {
   "name": "shawarma",
-  "private": true,
-  "dependencies": {}
+  "private": false,
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "jquery": "^3.2.1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com-simpl1g:simpl1g/shawarma.git",
+  "author": "Konstantin Ilchenko <konstantin@ilchenko.by>",
+  "license": "MIT"
 }

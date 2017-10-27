@@ -3,23 +3,38 @@
   <head>
     <title>Shawarma</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-      </li>
-  <% else %>
-      <li>
-        <%= link_to('Login', new_user_session_path)  %>
-      </li>
-  <% end %>
-    <%= yield %>
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <% if user_signed_in? %>
+              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'nav-link') %>
+          <% else %>
+              <%= link_to('Login', new_user_session_path, class: 'nav-link')  %>
+          <% end %>
+        </li>
+      </ul>
+    </header>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <p class="notice"><%= notice %></p>
+          <div class="alert alert-primary" role="alert">
+            <%= alert %>
+          </div>
+
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
