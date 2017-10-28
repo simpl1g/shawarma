@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028062634) do
+ActiveRecord::Schema.define(version: 20171028064739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "deliveries", force: :cascade do |t|
+    t.bigint "store_id"
+    t.datetime "start_at"
+    t.datetime "close_at"
+    t.datetime "deliver_at"
+    t.decimal "discount"
+    t.string "created_by"
+    t.string "card_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_deliveries_on_store_id"
+  end
 
   create_table "store_items", force: :cascade do |t|
     t.string "name"
@@ -47,5 +60,6 @@ ActiveRecord::Schema.define(version: 20171028062634) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "deliveries", "stores"
   add_foreign_key "store_items", "stores"
 end
