@@ -2,9 +2,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :delivery %>
-    <%= f.association :user %>
-    <%= f.input :preferred_payment_method %>
+    <%= f.association :delivery, label_method: :store_name %>
+    <%= f.input :preferred_payment_method, collection: Order.preferred_payment_menthods %>
   </div>
 
   <div class="form-actions">
