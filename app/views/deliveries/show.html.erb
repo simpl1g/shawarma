@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @delivery.store %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @delivery.start_at %>
+</p>
+
+<p>
+  <strong>Close at:</strong>
+  <%= @delivery.close_at %>
+</p>
+
+<p>
+  <strong>Deliver at:</strong>
+  <%= @delivery.deliver_at %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @delivery.discount %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @delivery.created_by %>
+</p>
+
+<p>
+  <strong>Card number:</strong>
+  <%= @delivery.card_number %>
+</p>
+
+<%= link_to 'Edit', edit_delivery_path(@delivery) %> |
+<%= link_to 'Back', deliveries_path %>
