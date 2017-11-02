@@ -2,8 +2,19 @@
 <p>Get your shawarma here</p>
 
 
-<% if @active_delivery %>
-  <p>Order collection will be closed at <%= @active_delivery.close_at %></p>
+<% if active_delivery %>
+  <p>Shawarma ordering will be closed at <%= active_delivery.close_at %></p>
+  <% if @orders.present? %>
+    <p>Your orders for this delivery</p>
+    <% @orders.each do |order| %>
+      <% order.order_items.each do |item| %>
+        <p class="alert-info"><%= item.label %></p>
+        <p class="alert-danger"><b>Quantity: </b><%= item.quantity %></p>
+      <% end %>
+    <% end %>
+
+    <p class="align-bottom">Total: <%= @orders.map(&:total).sum %></p>
+  <% end %>
 <% elsif @future_delivery %>
-  <p>Order collection will start at <%= @future_delivery.start_at %></p>
+  <p>Shawarma ordering will start at <%= @future_delivery.start_at %></p>
 <% end %>

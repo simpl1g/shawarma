@@ -14,6 +14,8 @@ gem 'puma', '~> 3.7'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'simple_form'
+gem 'cocoon'
+gem 'cancancan'
 
 # Assets
 gem 'sass-rails', '~> 5.0'

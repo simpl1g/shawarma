@@ -1,0 +1,11 @@
+<div class="row nested-fields">
+  <div class="col-6">
+    <%= f.association :store_item, label_method: :label, label: 'Хавка' %>
+  </div>
+  <div class="col-4">
+    <%= f.input :quantity, label: 'Сколько штук?' %>
+  </div>
+  <div class="col-2">
+    <%= link_to_remove_association 'Не хочу это', f, class: 'btn btn-danger' %>
+  </div>
+</div>
